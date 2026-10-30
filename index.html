@@ -238,52 +238,50 @@
 
     </div>
 </div>
-    <!-- ========================================== -->
+<!-- ========================================== -->
 <!-- PANTALLA DE INICIO (LEGENDARY HUB)         -->
 <!-- ========================================== -->
 <div id="hub-screen" style="position: fixed; inset: 0; background: radial-gradient(circle at 50% 30%, #2a1a10, #0a0604); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Cinzel', Georgia, serif; color: #d8c4a0;">
     
-    <!-- Título -->
     <h1 style="color: #e6b84d; font-size: 42px; letter-spacing: 4px; text-shadow: 0 0 20px rgba(230,184,77,0.6); margin-bottom: 10px;">LEGENDARY HUB</h1>
     <p style="color: #8a7a5a; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px;">THE ULTIMATE GAMING EXPERIENCE</p>
 
-    <!-- Cartel del Bote -->
     <div style="background: rgba(13, 9, 5, 0.8); border: 2px solid #e6b84d; border-radius: 10px; padding: 15px 30px; margin-bottom: 40px; text-align: center; box-shadow: 0 0 20px rgba(230,184,77,0.2);">
         <div style="font-size: 12px; letter-spacing: 2px; color: #e6b84d;">🏆 WEEKLY PRIZE POOL</div>
         <div id="hub-pool-amount" style="font-size: 36px; font-weight: bold; color: #00ffcc; text-shadow: 0 0 10px rgba(0,255,204,0.5);">0 USDT</div>
         <div style="font-size: 11px; color: #9a8a6a; margin-top: 5px;">👑 Leader: @NoOne (0 pts)</div>
     </div>
 
-    <!-- Botones de Juego (Aquí añadirás más juegos después) -->
     <div style="display: flex; flex-direction: column; gap: 15px; width: 80%; max-width: 300px;">
-        <button id="btn-play-match3" style="background: linear-gradient(180deg, #3a2418, #1a130c); color: #e6b84d; border: 2px solid #6a4a28; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; font-family: 'Cinzel', serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.1s;">
-             MATCH-3
+        <button id="btn-play-match3" style="background: linear-gradient(180deg, #3a2418, #1a130c); color: #e6b84d; border: 2px solid #6a4a28; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; font-family: 'Cinzel', serif; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+            🎮 MATCH-3
         </button>
-        <!-- Aquí irán los futuros juegos (Ruleta, Blackjack, etc.) -->
     </div>
 
-    <!-- Botones de Utilidad (Abajo) -->
     <div style="position: absolute; bottom: 20px; display: flex; gap: 15px; justify-content: center; width: 100%;">
         <button id="hub-btn-store" style="background: transparent; color: #e6b84d; border: 1px solid #6a4a28; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">🛒 STORE</button>
-        <button id="hub-btn-wallet" style="background: transparent; color: #ffcc00; border: 1px solid #6a4a28; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">👛 WALLET</button>
+        <button id="hub-btn-wallet" style="background: transparent; color: #ffcc00; border: 1px solid #6a4a28; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">💰 WALLET</button>
         <button id="hub-btn-community" style="background: transparent; color: #00ff88; border: 1px solid #005a2a; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">🌐 COMUNIDAD</button>
     </div>
 </div>
 
-<!-- MODAL DE LA WALLET (Diseño elegante) -->
+<!-- MODAL DE LA WALLET -->
 <div id="wallet-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10001; justify-content: center; align-items: center;">
     <div style="background: #1a130c; border: 2px solid #e6b84d; border-radius: 10px; padding: 25px; width: 90%; max-width: 380px; box-shadow: 0 0 30px rgba(0,0,0,0.9); font-family: Georgia, serif; text-align: center;">
         <h2 style="color: #e6b84d; margin-bottom: 10px; font-family: 'Cinzel', serif; font-size: 18px;">YOUR USDT WALLET</h2>
         <p style="font-size: 12px; color: #9a8a6a; margin-bottom: 15px;">Enter your <b>USDT (BEP20)</b> address to receive your prizes.</p>
-        <input type="text" id="wallet-input" placeholder="0x..." style="width: 100%; padding: 10px; background: #0d0905; color: #e6b84d; border: 1px solid #4a3a28; border-radius: 5px; font-family: monospace; text-align: center; margin-bottom: 15px;">
+        
+        <input type="text" id="wallet-input" placeholder="0x..." style="width: 100%; padding: 10px; background: #0d0905; color: #e6b84d; border: 1px solid #4a3a28; border-radius: 5px; font-family: monospace; text-align: center; margin-bottom: 10px;">
+        
+        <!-- AQUÍ ESTÁ EL DIV DEL ERROR -->
+        <div id="wallet-error" style="display: none; font-size: 12px; margin-bottom: 10px; font-weight: bold; font-family: sans-serif;"></div>
+        
         <button id="save-wallet-btn" style="width: 100%; background: #3a2418; color: #e6b84d; border: 1px solid #6a4a28; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 10px;">Save Wallet</button>
         <button id="close-wallet-btn" style="width: 100%; background: transparent; color: #8a7a5a; border: none; padding: 5px; cursor: pointer; font-size: 12px;">Close</button>
     </div>
 </div>
 
 <script>
-    // --- LÓGICA DEL HUB ---
-    
     // Ocultar el juego al principio
     const appContainer = document.querySelector('.app');
     if (appContainer) appContainer.style.display = 'none';
@@ -297,18 +295,28 @@
     // Botón Wallet (abre el modal)
     document.getElementById('hub-btn-wallet').onclick = () => {
         document.getElementById('wallet-input').value = localStorage.getItem('sanctuary_wallet') || '';
+        document.getElementById('wallet-error').style.display = 'none'; // Limpiar errores previos
         document.getElementById('wallet-modal').style.display = 'flex';
     };
 
-    // Guardar Wallet
+    // Guardar Wallet (con mensajes elegantes, sin alerts feos)
     document.getElementById('save-wallet-btn').onclick = () => {
         const w = document.getElementById('wallet-input').value.trim();
+        const errorMsg = document.getElementById('wallet-error');
+        
         if (w.startsWith('0x') && w.length === 42) {
             localStorage.setItem('sanctuary_wallet', w);
-            alert("Wallet saved!");
-            document.getElementById('wallet-modal').style.display = 'none';
+            errorMsg.style.color = '#00ff88';
+            errorMsg.textContent = '✔ Wallet saved successfully!';
+            errorMsg.style.display = 'block';
+            setTimeout(() => { 
+                document.getElementById('wallet-modal').style.display = 'none'; 
+                errorMsg.style.display = 'none'; 
+            }, 1500);
         } else {
-            alert("Please enter a valid BEP20 address (starts with 0x, 42 characters).");
+            errorMsg.style.color = '#ff4444';
+            errorMsg.textContent = 'Please enter a valid BEP20 address (0x... 42 chars).';
+            errorMsg.style.display = 'block';
         }
     };
 
@@ -323,6 +331,6 @@
     // Botón Store (próximamente)
     document.getElementById('hub-btn-store').onclick = () => alert("Store coming soon!");
 </script>
-<!-- ========================================== -->
+<!-- ========================================== --></body>
 </body>
 </html>
