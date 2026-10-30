@@ -262,6 +262,22 @@
         <button id="hub-btn-store" style="background: transparent; color: #e6b84d; border: 1px solid #6a4a28; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">🛒 STORE</button>
         <button id="hub-btn-wallet" style="background: transparent; color: #ffcc00; border: 1px solid #6a4a28; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">💰 WALLET</button>
         <button id="hub-btn-community" style="background: transparent; color: #00ff88; border: 1px solid #005a2a; padding: 10px 15px; border-radius: 6px; font-size: 12px; cursor: pointer;">🌐 COMUNIDAD</button>
+    // Mostrar el botón de volver cuando se juega, y ocultarlo en el Hub
+const btnPlay = document.getElementById('btn-play-match3');
+const btnBack = document.getElementById('btn-back-to-hub');
+const hubScreen = document.getElementById('hub-screen');
+
+btnPlay.onclick = () => {
+    hubScreen.style.display = 'none';
+    appContainer.style.display = 'block';
+    btnBack.style.display = 'block'; // Mostrar botón de volver
+};
+
+btnBack.onclick = () => {
+    appContainer.style.display = 'none';
+    hubScreen.style.display = 'flex'; // Mostrar el Hub de nuevo
+    btnBack.style.display = 'none'; // Ocultar el botón de volver
+};
     </div>
 </div>
 
@@ -332,5 +348,9 @@
     document.getElementById('hub-btn-store').onclick = () => alert("Store coming soon!");
 </script>
 <!-- ========================================== --></body>
+<!-- BOTÓN PARA VOLVER AL HUB (Solo visible en el juego) -->
+<button id="btn-back-to-hub" style="display: none; position: fixed; top: 10px; left: 10px; z-index: 9998; background: rgba(13, 9, 5, 0.8); color: #e6b84d; border: 1px solid #6a4a28; padding: 8px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; font-family: 'Cinzel', serif; pointer-events: auto;">
+    ← HUB
+</button>
 </body>
 </html>
