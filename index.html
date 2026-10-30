@@ -238,5 +238,38 @@
 
     </div>
 </div>
+    <!-- ========================================== -->
+<!-- HUD DE MONETIZACIÓN (MATCH-3)              -->
+<!-- ========================================== -->
+<div id="monetization-hud" style="position: fixed; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 9999; pointer-events: none; font-family: 'Cinzel', Georgia, serif;">
+    
+    <button id="btn-store" style="pointer-events: auto; background: linear-gradient(180deg, #3a2418, #1a130c); color: #e6b84d; border: 2px solid #6a4a28; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.5);">
+        🛒 STORE
+    </button>
+    
+    <button id="btn-wallet" style="pointer-events: auto; background: linear-gradient(180deg, #2a2418, #1a130c); color: #ffcc00; border: 2px solid #6a4a28; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.5);">
+        💼 WALLET
+    </button>
+    
+    <button id="btn-leaderboard" style="pointer-events: auto; background: linear-gradient(180deg, #2a3a4a, #101820); color: #00ccff; border: 2px solid #005a7a; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.5);">
+        🏆 RANKING
+    </button>
+    
+    <button id="btn-community" style="pointer-events: auto; background: linear-gradient(180deg, #1a3a2a, #0a1810); color: #00ff88; border: 2px solid #005a2a; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.5);">
+        🌐 HUB
+    </button>
+</div>
+
+<!-- Script para que los botones hagan algo -->
+<script>
+    document.getElementById('btn-store').onclick = () => alert("Store coming soon!");
+    document.getElementById('btn-wallet').onclick = () => {
+        const w = prompt("Enter your BEP20 wallet:", localStorage.getItem('sanctuary_wallet') || '');
+        if (w) { localStorage.setItem('sanctuary_wallet', w); alert("Wallet saved!"); }
+    };
+    document.getElementById('btn-leaderboard').onclick = () => alert("Leaderboard coming soon!");
+    document.getElementById('btn-community').onclick = () => window.open('https://t.me/match_puzzle_hub', '_blank');
+</script>
+<!-- ========================================== -->
 </body>
 </html>
